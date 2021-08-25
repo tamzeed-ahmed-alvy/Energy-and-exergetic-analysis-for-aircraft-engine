@@ -1,0 +1,696 @@
+from CoolProp.CoolProp import PropsSI
+#print('CoolProp version: ', CoolProp._version_)
+#print('CoolProp gitrevision:' , CoolProp._gitrevision_)
+#print('CoolProp fluids: ', CoolProp._fluids_)
+
+
+nf=.78
+nc=.86
+nt=.88
+
+
+
+T1=298
+p1=100000
+Cp1 = PropsSI('C', 'T', 298, 'P',p1 , 'Air')
+s1 = PropsSI('S', 'T', T1, 'P', p1, 'Air')
+h1=T1*Cp1
+#print(Cp1)
+print('h1=',h1*28.97/1000,'KJ/kmol')
+#print('h1=',h1/(1000),'KJ/kg')
+print('s1=',s1*28.97/1000,'KJ/kmol')
+
+T3=T2=420
+p3=p2=2.639*100000
+Cp3=Cp2 = PropsSI('C', 'T', T2, 'P', p2, 'Air')
+s3=s2 = PropsSI('S', 'T', T2, 'P', p2, 'Air')
+h3=h2=T2*Cp2
+#print(Cp2)
+print('h2=',h2*28.97/1000,'KJ/kmol')
+#print('h2=',h2/(1000),'KJ/kg')
+print('s2=',s2*28.97/1000,'KJ/kmol')
+
+T4=818.6
+p4=21.221*100000
+Cp4 = PropsSI('C', 'T', T4, 'P', p4, 'Air')
+s4 = PropsSI('S', 'T', T2, 'P', p2, 'Air')
+h4=T4*Cp4
+#print(Cp4)
+print('h4=',h1*28.97/1000,'KJ/kmol')
+#print('h4=',h1/(1000),'KJ/kg')
+print('s4=',s1*28.97/1000,'KJ/kmol')
+
+T5=1680.8
+p5=20.415*100000
+Cp5 = PropsSI('C', 'T', T5, 'P', p5, 'Air')
+s5 = PropsSI('S', 'T', T5, 'P', p5, 'Air')
+h5=T5*Cp5
+#print('Cp5=',Cp5)
+print('h5=',h5*28.97/1000,'KJ/kmol')
+#print('h5=',h5/(1000),'KJ/kg')
+print('s5=',s5*28.97/1000,'KJ/kmol')
+
+T6=1015.2
+p6=2.552*100000
+Cp6 = PropsSI('C', 'T', T6, 'P', p6, 'Air')
+s6 = PropsSI('S', 'T', T6, 'P', p6, 'Air')
+h6=T6*Cp6
+#print('Cp6=',Cp6)
+print('h6=',h6*28.97/1000,'KJ/kmol')
+#print('h6=',h6/(1000),'KJ/kg')
+print('s6=',s6*28.97/1000,'KJ/kmol')
+
+T7=423.5
+p7=2.471*100000
+Cp7 = PropsSI('C', 'T', T7, 'P', p7, 'Air')
+s7 = PropsSI('S', 'T', T7, 'P', p7, 'Air')
+h7=T7*Cp7
+#print('Cp7=',Cp7)
+print('h7=',h7*28.97/1000,'KJ/kmol')
+#print('h7=',h7/(1000),'KJ/kg')
+print('s7=',s7*28.97/1000,'KJ/kmol')
+
+
+T8=788.5
+p8=2.518*100000
+Cp8 = PropsSI('C', 'T', T8, 'P', p8, 'Air')
+s8 = PropsSI('S', 'T', T8, 'P', p8, 'Air')
+h8=T8*Cp8
+#print('Cp8=',Cp8)
+print('h8=',h8*28.97/1000,'KJ/kmol')
+#print('h8=',h8/(1000),'KJ/kg')
+print('s8=',s8*28.97/1000,'KJ/kmol')
+
+T9=2035.1
+p9=2.270*100000
+Cp9 = PropsSI('C', 'T', T9, 'P', p9, 'Air')
+s9 = PropsSI('S', 'T', T9, 'P', p9, 'Air')
+h9=T9*Cp9
+#print('Cp9=',Cp9)
+print('h9=',h9*28.97/1000,'KJ/kmol')
+#print('h9=',h9/(1000),'KJ/kg')
+print('s9=',s9*28.97/1000,'KJ/kmol')
+
+T10=1540
+p10=1*100000
+Cp10 = PropsSI('C', 'T', T10, 'P', p10, 'Air')
+s10 = PropsSI('S', 'T', T10, 'P', p10, 'Air')
+h10=T10*Cp10
+#print('Cp10=',Cp10)
+print('h10=',h10*28.97/1000,'KJ/kmol')
+#print('h10=',h10/(1000),'KJ/kg')
+print('s10=',s10*28.97/1000,'KJ/kmol')
+
+#Exergy Analysis
+Exph1 = 0
+print('Ext1=',Exph1/1e6,'MW')
+
+Exph2= 101.696*((h2-h1)-T1*(s2-s1))
+print('Ext2=',Exph2/1e6,'MW')
+
+Exph3= 60.175*((h3-h1)-T1*(s3-s1))
+print('Ext3=',Exph3/1e6,'MW')
+
+Exph4= 60.175*((h4-h1)-T1*(s4-s1))
+print('Ext4=',Exph4/1e6,'MW')
+
+Exch5 =2.64*1e6
+Exph5= 61.875*((h5-h1)-T1*(s5-s1))
+Ext5= (Exph5 + Exch5)
+print('Exph5=',Exph5/1e6,'MW')
+print('Ext5=',Ext5/1e6,'MW')
+
+Exph6= 61.875*((h6-h1)-T1*(s6-s1))
+print('Exph6=',Exph6/1e6,'MW')
+
+Exph7= 41.520*((h7-h1)-T1*(s7-s1))
+print('Exph7=',Exph7/1e6,'MW')
+
+Exph8= 103.395*((h8-h1)-T1*(s8-s1))
+print('Exph8=',Exph8/1e6,'MW')
+
+Exph9= 108.574*((h9-h1)-T1*(s9-s1))
+print('Exph9=',Exph9/1e6,'MW')
+Exph10= 108.574*((h10-h1)-T1*(s10-s1))
+Exch10 = 10.63*1e6 #From the paper
+Ext10 =Exph10 +Exch10
+print('Ext10=',Ext10/1e6,'MW')
+#from the paper not caculated
+Exphfcc= 77.86*1e6
+#ExphfccT= Exphfcc + .6*1e6
+print('Exphfcc=',Exphfcc/1e6,'MW')
+ExphfAB= 237.26*1e6
+print('ExphfAB=',ExphfAB/1e6,'MW')
+
+
+# The compiled calculation
+print("")
+print('The compiled calculation')
+
+# Compenent 01 (Fan)
+print('# Compenent 01 (Fan)')
+mf = 101.696
+Wf=Exph2/nf
+
+ef1 = Exph2/(Exph1+Wf)
+ef2 = (Exph2-Exph1)/(Wf)
+EdesF =Wf-Exph2
+
+
+P1= Exph2
+F1= Wf
+print('P1=',P1/1e6,'MW')
+print('F1= Wf=',Wf/1e6,'MW using nf=',nf*100,'%')
+print('EdesF=',EdesF/1e6,'MW')
+print('ef1=',ef1*100)
+print('ef2=',ef2*100)
+print("")
+print("")
+
+# Compenent 02 (Compressor)
+print('# Compenent 02 (Compressor)')
+
+mc = 60.175
+Wc=mc*(h4-h3)/nc
+
+ec1 = Exph4/(Exph3+Wc)
+ec2 = (Exph4-Exph3)/(Wc)
+EdesC =Wc-(Exph4-Exph3)
+
+
+P2=(Exph4-Exph3)
+F2= Wc
+print('P2=',P2/1e6,'MW')
+print('F2=',Wc/1e6,'MW using nc=',nc*100,'%')
+print('EdesC=',EdesC/1e6,'MW')
+print('ec1=',ec1*100)
+print('ec2=',ec2*100)
+print("")
+print("")
+
+# Compenent 03 (Combustion chamber)
+print('# Compenent 03 (Combustion chamber)')
+
+mch = 1.700
+Wch=0
+
+ech1 = Ext5/(Exph4+Exphfcc)
+ech2 = Ext5/(Exph4+Exphfcc)
+EdesCh =(Exph4+Exphfcc)-Ext5
+
+P3=(Ext5-Exph4)
+F3= Exphfcc
+print('P3=',P3/1e6,'MW')
+print('F3= ',Exphfcc/1e6,'MW ')
+print('EdesCh=',EdesCh/1e6,'MW')
+print('ech1=',ech1*100)
+print('ech2=',ech2*100)
+print("")
+print("")
+
+# Compenent 04 (Turbine)
+print('# Compenent 04 (Turbine)')
+
+mt =  61.875
+#Wt= Wc + Wf
+Wt=mt*(h5-h6)*nt
+et1 = (Wt+Exph6)/(Exph5)
+et2 = (Wt)/(Exph5-Exph6)
+Edest =(Exph5-Exph6)-Wt
+
+
+P4= Wt
+F4=(Exph5-Exph6)
+print('P4=',P4/1e6,'MW')
+print('F4=',F4/1e6,'MW using nt=',nt*100,'%')
+print('Edest=',Edest/1e6,'MW')
+print('et1=',et1*100)
+print('et2=',et2*100)
+print("")
+print("")
+
+# Compenent 05 (Afterburner)
+print('# Compenent 05 ( Afterburner )')
+
+mAf = 5.179
+Waf=0
+
+eaf1 = Exph9/(Exph8+ExphfAB)
+eaf2 = Exph9/(Exph8+ExphfAB)
+EdesAf =(Exph8+ExphfAB)-Exph9
+
+
+P5=(Exph9-Exph8)
+F5= ExphfAB
+print('P5=',P5/1e6,'MW')
+print('F5= ',F5/1e6,'MW ')
+print('EdesAf=',EdesAf/1e6,'MW')
+print('eaf1=',eaf1*100)
+print('eaf2=',eaf2*100)
+print("")
+print("")
+
+
+
+# Compenent 06 (Exhaust)
+
+print('# Compenent 06 (Exhaust)')
+
+mNo = 108.574
+Wno=0
+
+eNo1 = Ext10/(Exph9)
+eNo2 = Ext10/(Exph9)
+EdesNo =(Exph9)-Ext10
+
+
+P6=(Ext10)
+F6= Exph9
+print('P6=',P6/1e6,'MW')
+print('F6= ',F6/1e6,'MW ')
+print('EdesNo=',EdesNo/1e6,'MW')
+print('eNo1=',eNo1*100)
+print('eNo2=',eNo2*100)
+print("")
+print("")
+
+
+# Compenent 07 (Whole Engine)
+print('# 07(Whole Engine)')
+
+PT= P1+P2+P3+P4+P5+P6
+FT= F1+F2+F3+F4+F5+F6
+Edes_totel =(FT-PT)
+eT1 = 1 - (Edes_totel/FT)
+eT2 = (PT)/(FT)
+
+
+print('P7=',PT/1e6,'MW')
+print('F7=',FT/1e6,'MW' )
+print('Edes_totel=',Edes_totel/1e6,'MW')
+print('eT1=',eT1*100)
+print('eT2=',eT2*100)
+print("")
+print("")
+
+
+# Caculation of  Relative irreversiblity
+print('Caculation of  Relative irreversiblity')
+Xi_1= EdesF/Edes_totel
+Xi_2= EdesC/Edes_totel
+Xi_3= EdesCh/Edes_totel
+Xi_4= Edest/Edes_totel
+Xi_5= EdesAf/Edes_totel
+Xi_6= EdesNo/Edes_totel
+Xi_7= Edes_totel/Edes_totel
+print('Xi_1=',Xi_1*100)
+print('Xi_2=',Xi_2*100)
+print('Xi_3=',Xi_3*100)
+print('Xi_4=',Xi_4*100)
+print('Xi_5=',Xi_5*100)
+print('Xi_6=',Xi_6*100)
+print('Xi_7=',Xi_7*100)
+
+print("")
+print("")
+
+
+# Caculation of Fuel depletion Rate(%)
+print("Caculation of Fuel depletion Rate(%)")
+Oi_1= EdesF/(Exphfcc+ExphfAB)
+Oi_2= EdesC/(Exphfcc+ExphfAB)
+Oi_3= EdesCh/(Exphfcc+ExphfAB)
+Oi_4= Edest/(Exphfcc+ExphfAB)
+Oi_5= EdesAf/(Exphfcc+ExphfAB)
+Oi_6= EdesNo/(Exphfcc+ExphfAB)
+print('Oi_1=',Oi_1*100)
+print('Oi_2=',Oi_2*100)
+print('Oi_3=',Oi_3*100)
+print('Oi_4=',Oi_4*100)
+print('Oi_5=',Oi_5*100)
+print('Oi_6=',Oi_6*100)
+print("")
+print("")
+
+# Caculation of Exergetic improvement potential  Rate(MW)
+print('Caculation of Exergetic improvement potential  Rate(MW)')
+IPi_1 = (1-ef2)*(EdesF)
+IPi_2 = (1-ec2)*(EdesC)
+IPi_3 = (1-ech2)*(EdesCh)
+IPi_4 = (1-et2)*(Edest)
+IPi_5 = (1-eaf2)*(EdesAf)
+IPi_6 = (1-eNo2)*(EdesNo)
+#IPi_7 = (1-eT2)*(Edes_totel)
+IPi_7 = IPi_1+IPi_2+IPi_3+IPi_4+IPi_5+IPi_6
+print('IPi_1=',IPi_1/1e6,'MW')
+print('IPi_2=',IPi_2/1e6,'MW')
+print('IPi_3=',IPi_3/1e6,'MW')
+print('IPi_4=',IPi_4/1e6,'MW')
+print('IPi_5=',IPi_5/1e6,'MW')
+print('IPi_6=',IPi_6/1e6,'MW')
+print('IPi_7=',IPi_7/1e6,'MW')
+print("")
+print("")
+
+code 2
+
+import CoolProp
+import CoolProp.CoolProp as Cp
+from CoolProp.CoolProp import PropsSI
+
+nf=.78
+nc=.86
+nt=.88
+
+#State 1
+p1= 100000
+T1 = 298
+h1= PropsSI('H','T',T1,'P',p1,'Air')
+s1 = PropsSI('S', 'T', T1, 'P', p1, 'Air')
+print('h1=',h1*28.97/1000,'KJ/kmol')
+#print('h1=',h1/(1000),'KJ/kg')
+print('s1=',s1*28.97/1000,'KJ/kmol')
+
+p3=p2= 100000*2.639
+T3=T2 = 420
+h3=h2= PropsSI('H','T',T2,'P',p2,'Air')
+s3=s2 = PropsSI('S', 'T', T2, 'P', p2, 'Air')
+print('h2=',h2*28.97/1000,'KJ/kmol')
+#print('h2=',h2/(1000),'KJ/kg')
+print('s2=',s2*28.97/1000,'KJ/kmol')
+
+#Ext1= 101.696*((h2-h1)-T1*(s2-s1))
+#print('Ext1=',Ext1/1e6,'KJ/kg')
+
+
+T4=818.6
+p4=21.221*100000
+#'S',s4,
+s4=PropsSI('S','T',T4,'P',p4,'Air')
+h4= PropsSI('H','T',T4,'P',p4,'Air')
+print('h4=',h4*28.97/1000,'KJ/kmol')
+#print('h4=',h4/1000,'KJ/kg')
+print('s4=',s4*28.97/1000,'KJ/kmol')
+#print('s4=',s4/1000,'KJ/kg.k')
+
+T5=1680.8
+p5=20.415*100000
+h5= PropsSI('H','T',T5,'P',p5,'Air')
+s5 = PropsSI('S', 'T', T5, 'P', p5, 'Air')
+print('h5=',h5*28.97/1000,'KJ/kmol')
+#print('h5=',h5/(1000),'KJ/kg')
+print('s5=',s5*28.97/1000,'KJ/kmol')
+
+T6=1015.2
+p6=2.552*100000
+h6= PropsSI('H','T',T6,'P',p6,'Air')
+s6 = PropsSI('S', 'T', T6, 'P', p6, 'Air')
+print('h6=',h6*28.97/1000,'KJ/kmol')
+#print('h6=',h6/(1000),'KJ/kg')
+print('s6=',s6*28.97/1000,'KJ/kmol')
+
+T7=423.5
+p7=2.471*100000
+h7= PropsSI('H','T',T7,'P',p7,'Air')
+s7 = PropsSI('S', 'T', T7, 'P', p7, 'Air')
+print('h7=',h7*28.97/1000,'KJ/kmol')
+#print('h7=',h7/(1000),'KJ/kg')
+print('s7=',s7*28.97/1000,'KJ/kmol')
+
+T8=788.5
+p8=2.518*100000
+h8= PropsSI('H','T',T8,'P',p8,'Air')
+s8 = PropsSI('S', 'T', T8, 'P', p8, 'Air')
+print('h8=',h8*28.97/1000,'KJ/kmol')
+#print('h8=',h8/(1000),'KJ/kg')
+print('s8=',s8*28.97/1000,'KJ/kmol')
+
+
+T9=2035.1
+p9=2.270*100000
+h9= PropsSI('H','T',T9,'P',p9,'Air')
+s9 = PropsSI('S', 'T', T9, 'P', p9, 'Air')
+print('h9=',h9*28.97/1000,'KJ/kmol')
+#print('h9=',h9/(1000),'KJ/kg')
+print('s9=',s9*28.97/1000,'KJ/kmol')
+
+T10=1540
+p10=1*100000
+h10 = PropsSI('H','T',T10,'P',p10,'Air')
+s10 = PropsSI('S', 'T', T10, 'P', p10, 'Air')
+print('h10=',h10*28.97/1000,'KJ/kmol')
+#print('h10=',h10/(1000),'KJ/kg')
+print('s10=',s10*28.97/1000,'KJ/kmol')
+
+
+#Exergy Analysis
+
+print("")
+print('Exergy Analysis')
+Exph1 = 0
+print('Ext1=',Exph1/1e6,'MW')
+
+Exph2= 101.696*((h2-h1)-T1*(s2-s1))
+print('Ext2=',Exph2/1e6,'MW')
+
+Exph3= 60.175*((h3-h1)-T1*(s3-s1))
+print('Ext3=',Exph3/1e6,'MW')
+
+Exph4= 60.175*((h4-h1)-T1*(s4-s1))
+print('Ext4=',Exph4/1e6,'MW')
+
+Exch5 =2.64*1e6
+Exph5= 61.875*((h5-h1)-T1*(s5-s1))
+Ext5= (Exph5 + Exch5)
+print('Exph5=',Exph5/1e6,'MW')
+print('Ext5=',Ext5/1e6,'MW')
+
+Exph6= 61.875*((h6-h1)-T1*(s6-s1))
+print('Exph6=',Exph6/1e6,'MW')
+
+Exph7= 41.520*((h7-h1)-T1*(s7-s1))
+print('Exph7=',Exph7/1e6,'MW')
+
+Exph8= 103.395*((h8-h1)-T1*(s8-s1))
+print('Exph8=',Exph8/1e6,'MW')
+
+Exph9= (108.5179)((h9-h1)-T1(s9-s1)) #+ (5.179/108.5179)*43*1e6 # adding the fuel contribution
+print('Exph9=',Exph9/1e6,'MW')
+
+Exph10= 108.574*((h10-h1)-T1*(s10-s1))
+Exch10 = 10.63*1e6 #From the paper
+Ext10 =Exph10 +Exch10
+print('Ext10=',Ext10/1e6,'MW')
+#from the paper not caculated
+Exphfcc= 77.86*1e6
+#ExphfccT= Exphfcc + .6*1e6
+print('Exphfcc=',Exphfcc/1e6,'MW')
+ExphfAB= 237.26*1e6
+print('ExphfAB=',ExphfAB/1e6,'MW')
+
+
+# The compiled calculation
+print("")
+print('The compiled calculation')
+
+# Compenent 01 (Fan)
+print('# Compenent 01 (Fan)')
+mf = 101.696
+Wf=(Exph2-Exph1)/nf
+
+ef1 = Exph2/(Exph1+Wf)
+ef2 = (Exph2-Exph1)/(Wf)
+EdesF =Wf-(Exph2-Exph1)
+
+
+P1= Exph2
+F1= Wf
+print('P1=',P1/1e6,'MW')
+print('F1= Wf=',Wf/1e6,'MW using nf=',nf*100,'%')
+print('EdesF=',EdesF/1e6,'MW')
+print('ef1=',ef1*100)
+print('ef2=',ef2*100)
+print("")
+print("")
+
+# Compenent 02 (Compressor)
+print('# Compenent 02 (Compressor)')
+
+mc = 60.175
+Wc=mc*(h4-h3)/nc
+
+ec1 = Exph4/(Exph3+Wc)
+ec2 = (Exph4-Exph3)/(Wc)
+EdesC =Wc-(Exph4-Exph3)
+
+
+P2=(Exph4-Exph3)
+F2= Wc
+print('P2=',P2/1e6,'MW')
+print('F2=',Wc/1e6,'MW using nc=',nc*100,'%')
+print('EdesC=',EdesC/1e6,'MW')
+print('ec1=',ec1*100)
+print('ec2=',ec2*100)
+print("")
+print("")
+
+# Compenent 03 (Combustion chamber)
+print('# Compenent 03 (Combustion chamber)')
+
+mch = 1.700
+Wch=0
+
+ech1 = Ext5/(Exph4+Exphfcc)
+ech2 = Ext5/(Exph4+Exphfcc)
+EdesCh =(Exph4+Exphfcc)-Ext5
+
+
+P3=(Ext5-Exph4)
+F3= Exphfcc
+print('P3=',P3/1e6,'MW')
+print('F3= ',Exphfcc/1e6,'MW ')
+print('EdesCh=',EdesCh/1e6,'MW')
+print('ech1=',ech1*100)
+print('ech2=',ech2*100)
+print("")
+print("")
+
+# Compenent 04 (Turbine)
+print('# Compenent 04 (Turbine)')
+
+mt =  61.875
+#Wt= Wc + Wf
+Wt=mt*(h5-h6)*nt
+et1 = (Wt+Exph6)/(Exph5)
+et2 = (Wt)/(Exph5-Exph6)
+Edest =(Exph5-Exph6)-Wt
+
+
+P4= Wt
+F4=(Exph5-Exph6)
+print('P4=',P4/1e6,'MW')
+print('F4=',F4/1e6,'MW using nt=',nt*100,'%')
+print('Edest=',Edest/1e6,'MW')
+print('et1=',et1*100)
+print('et2=',et2*100)
+print("")
+print("")
+
+# Compenent 05 (Afterburner)
+print('# Compenent 05 ( Afterburner )')
+
+mAf = 5.179
+Waf=0
+
+eaf1 = Exph9/(Exph8+ExphfAB)
+eaf2 = Exph9/(Exph8+ExphfAB)
+EdesAf =(Exph8+ExphfAB)-Exph9
+
+
+P5=(Exph9-Exph8)
+F5= ExphfAB
+print('P5=',P5/1e6,'MW')
+print('F5= ',F5/1e6,'MW ')
+print('EdesAf=',EdesAf/1e6,'MW')
+print('eaf1=',eaf1*100)
+print('eaf2=',eaf2*100)
+print("")
+print("")
+
+
+
+# Compenent 06 (Exhaust)
+
+print('# Compenent 06 (Exhaust)')
+
+mNo = 108.574
+Wno=0
+
+eNo1 = Ext10/(Exph9)
+eNo2 = Ext10/(Exph9)
+EdesNo =(Exph9)-Ext10
+
+P6=(Ext10)
+F6= Exph9
+print('P6=',P6/1e6,'MW')
+print('F6= ',F6/1e6,'MW ')
+print('EdesNo=',EdesNo/1e6,'MW')
+print('eNo1=',eNo1*100)
+print('eNo2=',eNo2*100)
+print("")
+print("")
+
+
+# Compenent 07 (Whole Engine)
+print('# 07(Whole Engine)')
+
+PT= P1+P2+P3+P4+P5+P6
+FT= F1+F2+F3+F4+F5+F6
+Edes_totel =(FT-PT)
+eT1 = 1 - (Edes_totel/FT)
+eT2 = (PT)/(FT)
+
+
+print('P7=',PT/1e6,'MW')
+print('F7=',FT/1e6,'MW' )
+print('Edes_totel=',Edes_totel/1e6,'MW')
+print('eT1=',eT1*100)
+print('eT2=',eT2*100)
+print("")
+print("")
+
+
+# Caculation of  Relative irreversiblity
+print('Caculation of  Relative irreversiblity')
+Xi_1= EdesF/Edes_totel
+Xi_2= EdesC/Edes_totel
+Xi_3= EdesCh/Edes_totel
+Xi_4= Edest/Edes_totel
+Xi_5= EdesAf/Edes_totel
+Xi_6= EdesNo/Edes_totel
+Xi_7= Edes_totel/Edes_totel
+print('Xi_1=',Xi_1*100)
+print('Xi_2=',Xi_2*100)
+print('Xi_3=',Xi_3*100)
+print('Xi_4=',Xi_4*100)
+print('Xi_5=',Xi_5*100)
+print('Xi_6=',Xi_6*100)
+print('Xi_7=',Xi_7*100)
+print("")
+print("")
+
+# Caculation of Fuel depletion Rate(%)
+print("Caculation of Fuel depletion Rate(%)")
+Oi_1= EdesF/(Exphfcc+ExphfAB)
+Oi_2= EdesC/(Exphfcc+ExphfAB)
+Oi_3= EdesCh/(Exphfcc+ExphfAB)
+Oi_4= Edest/(Exphfcc+ExphfAB)
+Oi_5= EdesAf/(Exphfcc+ExphfAB)
+Oi_6= EdesNo/(Exphfcc+ExphfAB)
+print('Oi_1=',Oi_1*100)
+print('Oi_2=',Oi_2*100)
+print('Oi_3=',Oi_3*100)
+print('Oi_4=',Oi_4*100)
+print('Oi_5=',Oi_5*100)
+print('Oi_6=',Oi_6*100)
+print("")
+print("")
+# Caculation of Exergetic improvement potential  Rate(MW)
+print('Caculation of Exergetic improvement potential  Rate(MW)')
+IPi_1 = (1-ef2)*(EdesF)
+IPi_2 = (1-ec2)*(EdesC)
+IPi_3 = (1-ech2)*(EdesCh)
+IPi_4 = (1-et2)*(Edest)
+IPi_5 = (1-eaf2)*(EdesAf)
+IPi_6 = (1-eNo2)*(EdesNo)
+#IPi_7 = (1-eT2)*(Edes_totel)
+IPi_7 = IPi_1+IPi_2+IPi_3+IPi_4+IPi_5+IPi_6
+print('IPi_1=',IPi_1/1e6,'MW')
+print('IPi_2=',IPi_2/1e6,'MW')
+print('IPi_3=',IPi_3/1e6,'MW')
+print('IPi_4=',IPi_4/1e6,'MW')
+print('IPi_5=',IPi_5/1e6,'MW')
+print('IPi_6=',IPi_6/1e6,'MW')
+print('IPi_7=',IPi_7/1e6,'MW')
+print("")
+print("")
